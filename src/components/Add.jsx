@@ -5,22 +5,24 @@ import { Button } from '@mui/material'
 
 
 
-const Add = ({product}) => {
+const Add = () => {
   const [form, setForm] = useState(
     {
-    fname:'',
+    productName:'',
     description:'',
     price:'',
     category:''
   }
+  
 )
 
-  function valueCap(e)
+  function valueCap (e)
   {
+    
     setForm({...form,[e.target.name]:e.target.value})
   }
-  let valueAdd=()=>{
-    console.log(form)
+  let valueAdd = ()=>{
+  console.log(form)
   }
   
 
@@ -36,36 +38,32 @@ const Add = ({product}) => {
     >
       
       <div>
-        <TextField
+      <TextField
           required
-          id="standard-required"
-          label="Required-Name"
+          id="Required-ProductName"
+          label="ProductName"
           name="fname"
-          value={form.fname}
           onChange={valueCap}
         />
         <TextField
            required
-           id="standard-required"
-           label="Required-Description"
+           id="Required-Description"
+           label="Description"
            name="description"
-           value={form.description}
            onChange={valueCap}
         />
         <TextField
            required
-           id="standard-required"
-           label="Required-Price"
+           id="Required-Price"
+           label="Price"
            name="price"
-           value={form.price}
            onChange={valueCap}
         />
          <TextField
           required
-          id="standard-required"
-          label="Required-Category"
+          id="Required-Category"
+          label="Category"
           name="category"
-          value={form.category}
           onChange={valueCap}
         />
         <Button variant="contained" color="success" onClick={valueAdd}>Submit</Button>
@@ -73,6 +71,7 @@ const Add = ({product}) => {
       </div>
     </Box>
     </div>
+    
   )
 }
 export default Add

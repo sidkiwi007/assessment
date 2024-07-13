@@ -11,10 +11,13 @@ import axios from 'axios'
             setRows(res.data)
         }
     )
+    .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
     },[])
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper}sx={{ backgroundColor: 'lightblue', mt: 3 }}>
     <Table sx={{ minWidth: 300 }} aria-label="simple table">
       <TableHead>
         <TableRow>
@@ -26,9 +29,9 @@ import axios from 'axios'
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows && rows.map((row) => (
+        {rows.map((row) => (
           <TableRow
-            key={row.name}
+            key={row.id}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             <TableCell component="th" scope="row">
